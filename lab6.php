@@ -12,7 +12,7 @@
 <?php
 $originalUnit = '--Select--';
 $conversionUnit = '--Select--';
-// function to calculate converted temperature
+
 function convertTemp($temp, $unit1, $unit2)
 {
     // conversion formulas
@@ -23,7 +23,6 @@ function convertTemp($temp, $unit1, $unit2)
     // Kelvin to Fahrenheit = T(K) × 9/5 - 459.67
     // Kelvin to Celsius = T(K) - 273.15
 
-    // You need to develop the logic to convert the temperature based on the selections and input made
     if ($unit1 == $unit2) {
         return $temp;
     }
@@ -51,23 +50,17 @@ function convertTemp($temp, $unit1, $unit2)
 // Logic to check for POST and grab data from $_POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    // Store the original temp and units in variables
-    // You can then use these variables to help you make the form sticky
-    // then call the convertTemp() function
-    // Once you have the converted temperature you can place PHP within the converttemp field using PHP
-    // I coded the sticky code for the originaltemp field for you
-
     $originalTemperature = $_POST['originaltemp'];
     $originalUnit = $_POST['originalunit'];
     $conversionUnit = $_POST['conversionunit'];
     if ($originalUnit != '--Select--' && $conversionUnit !='--Select--') {
         $convertedTemp = convertTemp($originalTemperature, $originalUnit, $conversionUnit);
     } else {
-        echo '<p>Please Select a Unit.</p>';
+        echo '<p id="red">Please Select a Unit.</p>';
     }
     
 
-} // end if
+} 
 
 ?>
 <!-- Form starts here -->
@@ -91,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <div class="group">
         <label for="convertedtemp">Converted Temperature</label>
-        <input type="text" value="<?php if (isset($convertedTemp)) {
+        <input type="text" class="box" value="<?php if (isset($convertedTemp)) {
     echo $convertedTemp;} else {echo " ";}?>"
         name="convertedtemp" size="14" maxlength="7" id="convertedtemp" readonly>
 
