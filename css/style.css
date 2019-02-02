@@ -22,3 +22,5 @@ input[type=submit] {
     padding: 10px;
     font-size: 1em;
 }
+#red {color: #ff0000;}
+.box {background-color : #cdebf9;}
