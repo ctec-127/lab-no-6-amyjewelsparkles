@@ -58,10 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo '<p id="red">Please Select a Unit.</p>';
     }
-    
-
 } 
-
 ?>
 <!-- Form starts here -->
 <h1>Temperature Converter</h1>
@@ -70,12 +67,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="group">
         <label for="temp">Temperature</label>
         <input type="text" value="<?php if (isset($_POST['originaltemp'])) {
-    echo $_POST['originaltemp'];
-}
-?>" name="originaltemp" size="14" maxlength="7" id="temp">
+    echo $_POST['originaltemp'];} ?>" name="originaltemp" size="14" maxlength="7" id="temp">
 
         <select name="originalunit">
-            <option value="--Select--"<?php if ($originalUnit=='--Select--') echo 'selected="selected"'; ?> >--Select--</option>
+            <option value="--Select--" <?php if ($originalUnit=='--Select--') echo 'selected="selected"'; ?> >--Select--</option>
             <option value="celsius" <?php if ($originalUnit=='celsius') echo 'selected="selected"'; ?> >Celsius</option>
             <option value="farenheit" <?php if ($originalUnit=='farenheit') echo 'selected="selected"'; ?> >Farenheit</option>
             <option value="kelvin" <?php if ($originalUnit=='kelvin') echo 'selected="selected"'; ?> >Kelvin</option>
